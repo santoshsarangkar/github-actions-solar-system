@@ -54,7 +54,7 @@ jobs:
               [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
           #sudo apt-get install npm
           - name: Install dependencies 
-            run: npn install
+            run: /opt/hostedtoolcache/node/18.20.4/x64/bin/npm install
           - name: Run code-coverage
             continue-on-error: true 
             run: npm run code-coverage
