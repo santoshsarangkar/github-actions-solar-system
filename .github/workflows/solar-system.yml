@@ -46,8 +46,11 @@ jobs:
             uses: actions/setup-node@v4
             with: 
               node-version: 18
-          - name: Install npm 
-            run: sudo apt-get install npm
+          - name: script  
+            run:  | 
+              export NVM_DIR="$HOME/.nvm"
+              [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+          #sudo apt-get install npm
           - name: Install dependencies 
             run: npn install
           - name: Run code-coverage
