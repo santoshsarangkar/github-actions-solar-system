@@ -65,3 +65,21 @@ jobs:
             with: 
               path: coverage
               retention-days: 5
+    docker: 
+      name: Docker
+      runs-on: ubuntu-latest
+      steps: 
+        - name: Checkout Repository
+          uses: actions/checkout@v4
+        - name: Docker login
+          uses: actions/docker-login@v3
+          with:
+            registry: ghcr.io
+            username: ${{ github.actor }}
+            password: ${{ secrets.GITHUB_TOKEN }}
+        - name: Build and push
+          uses: docker/build-push-action@v6
+          with:
+            push: true
+            tags: ghcr.io/${{ github.actor }}/solar-system:${{ github.sha }}
+
