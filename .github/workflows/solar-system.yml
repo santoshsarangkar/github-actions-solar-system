@@ -1,8 +1,5 @@
 name: Solar System Workflow
 
-permissions:
-  actions: write
-
 on: 
   workflow_dispatch:
   push:
@@ -69,6 +66,8 @@ jobs:
               path: coverage
               retention-days: 5
     docker: 
+      permissions:
+        actions: write
       name: Docker
       runs-on: ubuntu-latest
       steps: 
