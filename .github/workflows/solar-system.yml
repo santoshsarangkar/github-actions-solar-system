@@ -68,6 +68,7 @@ jobs:
     docker: 
       permissions:
         actions: write
+        packages: write
       name: Docker
       runs-on: ubuntu-latest
       steps: 
