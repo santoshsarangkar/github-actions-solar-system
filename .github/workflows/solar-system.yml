@@ -1,5 +1,8 @@
 name: Solar System Workflow
 
+permissions:
+  actions: write
+
 on: 
   workflow_dispatch:
   push:
@@ -81,4 +84,4 @@ jobs:
           uses: docker/build-push-action@v6
           with:
             push: true
-            tags: ghcr.io/{githubUsername}/solar-system:{githubSHA}
+            tags: ghcr.io/${{ github.actor }}/solar-system:${{ github.sha }}
